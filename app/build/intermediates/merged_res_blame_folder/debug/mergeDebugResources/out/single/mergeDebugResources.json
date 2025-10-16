@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta6.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta6.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta5.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta5.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_h1.png.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/h1.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.geektcg.tienda.app-main-68:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.geektcg.tienda.app-main-68:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta1.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta1.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_h4.png.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/h4.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta2.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta2.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta3.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta3.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_h2.png.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/h2.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_logo.png.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/logo.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-66:/drawable_carta7.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-68:/drawable/carta7.jpg"
+    }
+]

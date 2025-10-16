@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.geektcg.tienda.app-mergeDebugResources-64:/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "83",
+                        "endOffsets": "95"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "83",
+                        "endOffsets": "134"
+                    }
+                }
+            ]
+        }
+    ]
+}

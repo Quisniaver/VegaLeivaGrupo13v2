@@ -1,0 +1,22 @@
+R_DEF: Internal format may change without notice
+local
+color bootstrap_danger
+color bootstrap_info
+color bootstrap_primary
+color bootstrap_secondary
+color bootstrap_success
+color bootstrap_warning
+drawable carta1
+drawable carta2
+drawable carta3
+drawable carta5
+drawable carta6
+drawable carta7
+drawable h1
+drawable h2
+drawable h4
+drawable logo
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.ComposeTienda

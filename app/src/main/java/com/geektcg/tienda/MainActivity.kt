@@ -3,17 +3,11 @@ package com.geektcg.tienda
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.rememberDrawerState
-import androidx.compose.material3.ModalNavigationDrawer
-import androidx.compose.material3.ModalDrawerSheet
-import androidx.compose.material3.NavigationDrawerItem
-import androidx.compose.material3.NavigationDrawerItemDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -23,37 +17,30 @@ import androidx.navigation.compose.*
 import com.geektcg.tienda.ui.*
 import com.geektcg.tienda.ui.theme.LeivaVegaTheme
 import kotlinx.coroutines.launch
-import androidx.compose.foundation.isSystemInDarkTheme
-import com.geektcg.tienda.ui.InicioScreen
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // 💙 Aplicar tu tema Azul Príncipe (claro/oscuro)
-            LeivaVegaTheme(
-                darkTheme = isSystemInDarkTheme()  // Se adapta automáticamente
-            ) {
+            LeivaVegaTheme(darkTheme = isSystemInDarkTheme()) {
                 TiendaApp()
             }
         }
     }
 }
 
-// 📱 Definición de pantallas principales
 sealed class Screen(val route: String, val label: String) {
-    object Inicio: Screen("inicio", "Inicio")
-    object Productos: Screen("productos", "Productos")
-    object Carrito: Screen("carrito", "Carrito")
-    object Contacto: Screen("contacto", "Contacto")
-    object Nosotros: Screen("nosotros", "Nosotros")
-    object Blogs: Screen("blogs", "Blogs")
-    object Login: Screen("login", "Login")
-    object Registro: Screen("registro", "Registro")
-    object Usuarios: Screen("usuarios", "Usuarios")
-    object AdmHome: Screen("adm_home", "Admin")
-    object Detalle: Screen("detalle/{id}", "Detalle") {
+    object Inicio : Screen("inicio", "Inicio")
+    object Productos : Screen("productos", "Productos")
+    object Carrito : Screen("carrito", "Carrito")
+    object Contacto : Screen("contacto", "Contacto")
+    object Nosotros : Screen("nosotros", "Nosotros")
+    object Blogs : Screen("blogs", "Blogs")
+    object Login : Screen("login", "Login")
+    object Registro : Screen("registro", "Registro")
+    object Usuarios : Screen("usuarios", "Usuarios")
+    object AdmHome : Screen("adm_home", "Admin")
+    object Detalle : Screen("detalle/{id}", "Detalle") {
         fun withId(id: Int) = "detalle/$id"
     }
 }
@@ -65,23 +52,15 @@ fun TiendaApp() {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    // 🔹 Secciones principales (Bottom Bar)
     val mainItems = listOf(
-        Screen.Inicio,
-        Screen.Productos,
-        Screen.Carrito,
-        Screen.Nosotros
+        Screen.Inicio, Screen.Productos, Screen.Carrito, Screen.Nosotros
     )
 
-    // 🔹 Secciones secundarias (Drawer lateral)
     val drawerItems = listOf(
-        Screen.Contacto,
-        Screen.Blogs,
-        Screen.Login,
-        Screen.Registro,
-        Screen.Usuarios
+        Screen.Contacto, Screen.Blogs, Screen.Login, Screen.Registro, Screen.Usuarios
     )
 
+    // ✅ Drawer correctamente visible
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -91,16 +70,33 @@ fun TiendaApp() {
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(16.dp)
                 )
-                drawerItems.forEach { item ->
-                    NavigationDrawerItem(
-                        label = { Text(item.label) },
-                        selected = false,
-                        onClick = {
-                            navController.navigate(item.route)
-                            scope.launch { drawerState.close() }
-                        },
-                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-                    )
+                Divider()
+
+                Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
+                    TextButton(onClick = {
+                        navController.navigate(Screen.Contacto.route)
+                        scope.launch { drawerState.close() }
+                    }) { Text("Contacto") }
+
+                    TextButton(onClick = {
+                        navController.navigate(Screen.Blogs.route)
+                        scope.launch { drawerState.close() }
+                    }) { Text("Blogs") }
+
+                    TextButton(onClick = {
+                        navController.navigate(Screen.Login.route)
+                        scope.launch { drawerState.close() }
+                    }) { Text("Iniciar Sesión") }
+
+                    TextButton(onClick = {
+                        navController.navigate(Screen.Registro.route)
+                        scope.launch { drawerState.close() }
+                    }) { Text("Registro") }
+
+                    TextButton(onClick = {
+                        navController.navigate(Screen.Usuarios.route)
+                        scope.launch { drawerState.close() }
+                    }) { Text("Usuarios") }
                 }
             }
         }
@@ -110,7 +106,7 @@ fun TiendaApp() {
                 TopAppBar(
                     title = { Text("Geek TCG") },
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,   // 💙 Barra superior azul
+                        containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = MaterialTheme.colorScheme.onPrimary
                     ),
                     navigationIcon = {
@@ -150,14 +146,15 @@ fun TiendaApp() {
                 }
             }
         ) { innerPadding ->
+            // ✅ Ajuste clave: el NavHost recibe padding, permitiendo scroll
             NavHost(
                 navController = navController,
                 startDestination = Screen.Inicio.route,
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
             ) {
-                composable(Screen.Inicio.route) {
-                    InicioScreen()
-                }
+                composable(Screen.Inicio.route) { InicioScreen() }
                 composable(Screen.Productos.route) {
                     ProductosScreen(onVerProducto = { id ->
                         navController.navigate(Screen.Detalle.withId(id))

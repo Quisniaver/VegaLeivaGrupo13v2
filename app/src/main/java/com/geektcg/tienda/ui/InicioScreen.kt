@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,17 +16,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.geektcg.tienda.R
-
+import com.geektcg.tienda.ui.CardsSection   // 👈 asegúrate del paquete correcto
+import com.geektcg.tienda.ui.NovedadesSection
 
 @Composable
 fun InicioScreen() {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F5F5))
+            .background(Color(0xFFF5F5F5)),
+        contentPadding = PaddingValues(bottom = 24.dp) // 👈 mejor que padding externo
     ) {
+        // 🔹 Hero Section
         item {
-            // 🔹 Hero Section
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -39,18 +41,18 @@ fun InicioScreen() {
                     modifier = Modifier.fillMaxSize()
                 )
 
-                // Overlay oscuro con gradiente
+                // Capa oscura degradada
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
                         .background(
                             Brush.verticalGradient(
-                                colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.6f))
+                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.6f))
                             )
                         )
                 )
 
-                // Texto sobre la imagen
+                // Texto sobre imagen
                 Column(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -71,17 +73,19 @@ fun InicioScreen() {
             }
         }
 
-        // 🔹 Features / Cards Section
+        // 🔹 Características
         item {
             SectionTitle("Características")
             CardsSection()
         }
 
-        // 🔹 Novedades Section
+        // 🔹 Novedades
         item {
             SectionTitle("Novedades")
             NovedadesSection()
         }
+
+        item { Spacer(Modifier.height(8.dp)) }
     }
 }
 

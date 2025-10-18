@@ -21,9 +21,10 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.*
 import com.geektcg.tienda.ui.*
-import com.geektcg.tienda.ui.theme.LeivaVegaTheme   // ✅ Importa tu tema azul personalizado
+import com.geektcg.tienda.ui.theme.LeivaVegaTheme
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.isSystemInDarkTheme
+import com.geektcg.tienda.ui.InicioScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -155,9 +156,7 @@ fun TiendaApp() {
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(Screen.Inicio.route) {
-                    InicioScreen(onVerProducto = { id ->
-                        navController.navigate(Screen.Detalle.withId(id))
-                    })
+                    InicioScreen()
                 }
                 composable(Screen.Productos.route) {
                     ProductosScreen(onVerProducto = { id ->

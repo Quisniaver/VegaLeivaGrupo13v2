@@ -16,6 +16,7 @@ drawable carta7
 drawable h1
 drawable h2
 drawable h4
+drawable ic_cards
 drawable logo
 mipmap ic_launcher
 mipmap ic_launcher_round

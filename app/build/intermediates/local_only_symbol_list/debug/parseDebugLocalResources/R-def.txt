@@ -6,6 +6,7 @@ color bootstrap_primary
 color bootstrap_secondary
 color bootstrap_success
 color bootstrap_warning
+color royal_blue
 drawable carta1
 drawable carta2
 drawable carta3

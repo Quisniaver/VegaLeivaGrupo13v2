@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.geektcg.tienda.ui.vm.LoginViewModel
+import com.geektcg.tienda.vm.LoginViewModel
 
 @Composable
 fun LoginScreen(onRegistro: () -> Unit, vm: LoginViewModel = viewModel()) {

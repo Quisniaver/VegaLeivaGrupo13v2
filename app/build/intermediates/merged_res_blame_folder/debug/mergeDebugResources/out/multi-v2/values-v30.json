@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.geektcg.tienda.app-mergeDebugResources-64:/values-v30/values-v30.xml",
+            "outputFile": "com.geektcg.tienda.app-mergeDebugResources-75:/values-v30/values-v30.xml",
             "map": [
                 {
                     "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\91c86f98d0343ce6865eafc66a1aeb80\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",

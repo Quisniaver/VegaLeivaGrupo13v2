@@ -14,8 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.geektcg.tienda.data.Repo
-import com.geektcg.tienda.data.Producto
-import com.geektcg.tienda.ui.vm.CarritoViewModel
+import com.geektcg.tienda.vm.CarritoViewModel
 
 @Composable
 fun DetalleScreen(

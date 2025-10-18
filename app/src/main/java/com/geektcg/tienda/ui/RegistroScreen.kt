@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.geektcg.tienda.ui.vm.RegistroViewModel
+import com.geektcg.tienda.vm.RegistroViewModel
 
 @Composable
 fun RegistroScreen(vm: RegistroViewModel = viewModel()) {

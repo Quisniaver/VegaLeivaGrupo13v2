@@ -1,45 +1,79 @@
 package com.geektcg.tienda.ui
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import com.geektcg.tienda.R
+
+
+/**
+ * Data class para definir la estructura de una novedad.
+ */
+data class Novedad(
+    val id: Int,
+    val titulo: String,
+    val descripcion: String,
+    val resId: Int // ID del recurso de la imagen
+)
 
 @Composable
-fun NovedadesSection() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()  // 👈 ancho, no tamaño total
-            .padding(horizontal = 16.dp)
-    ) {
-        repeat(3) { idx ->
+fun NovedadesSection(
+    novedades: List<Novedad>, // Recibe la lista de novedades a mostrar
+    onProductClick: (id: Int) -> Unit
+) {
+    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+        novedades.forEach { novedad ->
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 6.dp),
-                shape = RoundedCornerShape(12.dp)
+                    .padding(vertical = 8.dp)
+                    .clickable { onProductClick(novedad.id) },
+                shape = RoundedCornerShape(10.dp)
             ) {
                 Row(
-                    modifier = Modifier.padding(12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Box(
+                    Image(
+                        painter = painterResource(id = novedad.resId),
+                        contentDescription = "Imagen de Novedad: ${novedad.titulo}",
+                        contentScale = ContentScale.Crop,
                         modifier = Modifier
-                            .size(48.dp)
-                            .background(Color.LightGray, RoundedCornerShape(8.dp))
+                            .size(80.dp)
+                            .padding(end = 12.dp)
                     )
-                    Spacer(Modifier.width(12.dp))
-                    Column(Modifier.weight(1f)) {
-                        Text("Novedad ${idx + 1}", fontWeight = FontWeight.SemiBold)
-                        Text("Descripción breve...", fontSize = 12.sp, color = Color.DarkGray)
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            novedad.titulo,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 16.sp
+                        )
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            novedad.descripcion, // Limpiado para no mostrar el ID al usuario
+                            fontSize = 13.sp
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            "Ver más",
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary // Usando el color del tema
+                        )
                     }
                 }
             }

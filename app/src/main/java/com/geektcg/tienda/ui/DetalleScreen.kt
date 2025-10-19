@@ -21,6 +21,7 @@ fun DetalleScreen(
     id: Int,
     carritoVM: CarritoViewModel = viewModel()
 ) {
+    // Buscar producto o usar el primero si no existe
     val producto = Repo.productos.find { it.id == id } ?: Repo.productos.first()
     var agregado by remember { mutableStateOf(false) }
 
@@ -31,31 +32,53 @@ fun DetalleScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Imagen del producto
-        Image(
-            painter = painterResource(id = producto.imagen),
-            contentDescription = producto.nombre,
-            contentScale = ContentScale.Crop,
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(220.dp)
+                .height(300.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = producto.imagen),
+                contentDescription = producto.nombre,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Nombre del producto
+        Text(
+            text = producto.nombre,
+            style = MaterialTheme.typography.titleLarge
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Precio del producto
+        Text(
+            text = "Precio: $${producto.precio}",
+            style = MaterialTheme.typography.bodyLarge
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = producto.nombre, style = MaterialTheme.typography.titleLarge)
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(text = "Precio: $${producto.precio}", style = MaterialTheme.typography.bodyLarge)
 
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = {
-            carritoVM.add(producto.id, producto.nombre, producto.precio, 1)
-            agregado = true
-        }) {
-            Text("Agregar al Carrito")
+        // Botón agregar al carrito
+        Button(
+            onClick = {
+                carritoVM.add(producto.id, producto.nombre, producto.precio, 1)
+                agregado = true
+            }
+        ) {
+            Text(text = "Agregar al Carrito")
         }
 
+        // Mensaje de producto agregado
         AnimatedVisibility(visible = agregado) {
             Text(
-                "¡Producto agregado!",
+                text = "¡Producto agregado!",
                 color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.padding(top = 8.dp)
             )

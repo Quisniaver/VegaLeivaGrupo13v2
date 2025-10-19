@@ -4,7 +4,7 @@
             "outputFile": "com.geektcg.tienda.app-mergeDebugResources-75:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\8dfe993ed97c17e21acde57b68ab813d\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\valei\\.gradle\\caches\\9.0-milestone-1\\transforms\\8dfe993ed97c17e21acde57b68ab813d\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\valei\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

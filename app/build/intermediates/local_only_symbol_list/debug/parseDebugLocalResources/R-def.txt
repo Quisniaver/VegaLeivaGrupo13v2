@@ -13,11 +13,15 @@ drawable carta3
 drawable carta5
 drawable carta6
 drawable carta7
+drawable exclusivo2
 drawable h1
 drawable h2
 drawable h4
 drawable ic_cards
 drawable logo
+drawable myl
+drawable novedades1
+drawable novedades2
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

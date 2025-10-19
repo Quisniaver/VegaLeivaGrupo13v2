@@ -2984,6 +2984,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable exclusivo2
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable h1
@@ -3068,6 +3069,7 @@ drawable mtrl_switch_thumb_unchecked_pressed
 drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
+drawable myl
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -3082,6 +3084,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable novedades1
+drawable novedades2
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light

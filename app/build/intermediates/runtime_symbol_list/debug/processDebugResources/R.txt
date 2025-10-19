@@ -2983,6 +2983,7 @@ int drawable design_ic_visibility 0x7f07009b
 int drawable design_ic_visibility_off 0x7f07009c
 int drawable design_password_eye 0x7f07009d
 int drawable design_snackbar_background 0x7f07009e
+int drawable exclusivo2 0x7f070104
 int drawable googleg_disabled_color_18 0x7f07009f
 int drawable googleg_standard_color_18 0x7f0700a0
 int drawable h1 0x7f0700a1
@@ -3067,6 +3068,7 @@ int drawable mtrl_switch_thumb_unchecked_pressed 0x7f0700ef
 int drawable mtrl_switch_track 0x7f0700f0
 int drawable mtrl_switch_track_decoration 0x7f0700f1
 int drawable mtrl_tabs_default_indicator 0x7f0700f2
+int drawable myl 0x7f070107
 int drawable navigation_empty_icon 0x7f0700f3
 int drawable notification_action_background 0x7f0700f4
 int drawable notification_bg 0x7f0700f5
@@ -3081,6 +3083,8 @@ int drawable notification_template_icon_bg 0x7f0700fd
 int drawable notification_template_icon_low_bg 0x7f0700fe
 int drawable notification_tile_bg 0x7f0700ff
 int drawable notify_panel_notification_icon_bg 0x7f070100
+int drawable novedades1 0x7f070105
+int drawable novedades2 0x7f070106
 int drawable test_level_drawable 0x7f070101
 int drawable tooltip_frame_dark 0x7f070102
 int drawable tooltip_frame_light 0x7f070103

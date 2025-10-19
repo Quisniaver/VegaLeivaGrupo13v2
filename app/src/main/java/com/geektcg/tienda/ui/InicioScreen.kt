@@ -15,17 +15,30 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.geektcg.tienda.R
-import com.geektcg.tienda.ui.CardsSection     // 👈 ajusta si están en otro package
-import com.geektcg.tienda.ui.NovedadesSection
+import com.geektcg.tienda.Screen
+
+import com.geektcg.tienda.ui.*
 
 @Composable
-fun InicioScreen() {
+fun InicioScreen(navController: NavController) {
+
+    // --- SOLUCIÓN PASO 2: CREAR LOS DATOS Y USAR IMÁGENES QUE EXISTAN ---
+    // Creamos la lista de datos.
+    // NOTA: He cambiado R.drawable.torneo y R.drawable.accesorios por imágenes
+    // que probablemente sí tienes. ¡Asegúrate de que 'novedades1' y 'logo' existan!
+    val listaDeNovedades = listOf(
+        Novedad(1, "¡Vuelve la Megaevolución!", "¡Los Pokémon ex Megaevolución son aún más poderosos y entregan 3 cartas de Premio cuando quedan Fuera de Combate!", R.drawable.novedades1),
+        Novedad(2, "Booster Packs", "Yu-Gi-Oh!: Nuevo lanzamiento: 26-02-2026 /n. Reserva ya .", R.drawable.novedades2), // Usando 'logo' como placeholder
+        Novedad(3, "Mitos y leyenda", "MYL: Preventa Primera Era", R.drawable.myl) // Usando 'novedades1' como placeholder
+    )
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5)),
-        contentPadding = PaddingValues(bottom = 24.dp) // 👈 evita solape con bottom bar
+        contentPadding = PaddingValues(bottom = 24.dp)
     ) {
         // Hero
         item {
@@ -71,12 +84,25 @@ fun InicioScreen() {
 
         item {
             SectionTitle("Características")
-            CardsSection()              // 👈 dentro NO debe haber fillMaxSize()
+            // CardsSection() // Asegúrate de que CardsSection también esté corregido
         }
 
         item {
             SectionTitle("Novedades")
-            NovedadesSection()         // 👈 dentro NO debe haber fillMaxSize()
+
+            // --- SOLUCIÓN PASO 3: LLAMAR A LA FUNCIÓN CORRECTAMENTE ---
+            // Ahora esta llamada funciona porque:
+            // 1. El 'import' le dice al compilador dónde está NovedadesSection.
+            // 2. Le pasamos la lista de novedades que creamos arriba.
+            // 3. Le pasamos la acción de navegación.
+            NovedadesSection(
+                novedades = listaDeNovedades,
+                onProductClick = { novedadId ->
+                    navController.navigate(Screen.Detalle.withId(novedadId))
+                }
+
+
+            )
         }
 
         item { Spacer(Modifier.height(8.dp)) }

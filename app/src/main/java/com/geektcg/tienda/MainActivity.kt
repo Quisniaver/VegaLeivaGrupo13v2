@@ -166,7 +166,9 @@ fun TiendaApp() {
                     .fillMaxSize()
                     .padding(innerPadding)
             ) {
-                composable(Screen.Inicio.route) { InicioScreen() }
+                composable(Screen.Inicio.route) {
+                    InicioScreen(navController = navController) // ✅ corregido
+                }
                 composable(Screen.Productos.route) {
                     ProductosScreen(onVerProducto = { id ->
                         navController.navigate(Screen.Detalle.withId(id))
@@ -178,11 +180,10 @@ fun TiendaApp() {
                 composable(Screen.Blogs.route) { BlogsScreen() }
                 composable(Screen.Login.route) {
                     LoginScreen(
-                        navController = navController,  // 👈 aquí pasas el parámetro que faltaba
+                        navController = navController,
                         onRegistro = { navController.navigate(Screen.Registro.route) }
                     )
                 }
-
                 composable(Screen.Registro.route) { RegistroScreen() }
                 composable(Screen.Usuarios.route) { UsuariosScreen() }
                 composable(Screen.AdmHome.route) { AdmHomeScreen() }
@@ -190,7 +191,12 @@ fun TiendaApp() {
                     val id = backStackEntry.arguments?.getString("id")?.toIntOrNull() ?: 0
                     DetalleScreen(id = id)
                 }
+                composable("novedades/{novedadId}") { backStackEntry ->
+                    val id = backStackEntry.arguments?.getString("novedadId")?.toIntOrNull() ?: 0
+                    DetalleScreen(id)
+                }
             }
+
         }
     }
 }

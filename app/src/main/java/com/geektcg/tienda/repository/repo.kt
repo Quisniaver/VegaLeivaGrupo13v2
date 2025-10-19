@@ -13,9 +13,9 @@ data class Producto(
 // Repositorio simple de productos (mock local)
 object Repo {
     val productos = listOf(
-        Producto(1, "Carta Legendaria Azul", 4990, R.drawable.carta1),
-        Producto(2, "Carta Dragón Rojo", 5990, R.drawable.carta2),
-        Producto(3, "Carta Hielo Épica", 6990, R.drawable.carta3),
+        Producto(1, "Mega-Lucario ex", 20000, R.drawable.novedades1),
+        Producto(2, "Yu-Gi-Oh!- Booster Packs", 25990, R.drawable.novedades2),
+        Producto(3, "PREVENTA 3 RACIAL PRIMERA ERA 2025 - CABALLERO", 74990, R.drawable.myl),
         Producto(4, "Carta Oscura", 7990, R.drawable.carta5)
     )
 }

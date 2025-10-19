@@ -1,7 +1,7 @@
 package com.geektcg.tienda.ui.theme
+
 import android.app.Activity
 import androidx.compose.ui.graphics.Color
-
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
@@ -11,8 +11,11 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.geektcg.tienda.ui.theme.Typography
+// ❗ ASUME: Debes tener RoyalBlue, RoyalGrey, RoyalBackground y SkyBlue40 definidas en Color.kt
+// Si no están en Color.kt, debes importarlas o definirlas aquí.
 
-// 🎨 Esquema de colores oscuro
+// 🎨 Esquema de colores claro
 private val LightColorScheme = lightColorScheme(
     primary = RoyalBlue,          // 💙 Azul príncipe
     secondary = RoyalGrey,
@@ -31,11 +34,11 @@ private val DarkColorScheme = darkColorScheme(
 
 
 /**
- * 🌟 Tema principal de la app Geek TCG / LeivaVega
+ * 🌟 Tema principal de la app Geek TCG / TiendaTheme
  * Compatible con dynamic color (Android 12+) y modo oscuro
  */
 @Composable
-fun LeivaVegaTheme(
+fun TiendaTheme( // ❗ CORRECCIÓN 1: Renombrado a TiendaTheme (asumido)
     darkTheme: Boolean = isSystemInDarkTheme(),
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
@@ -61,8 +64,8 @@ fun LeivaVegaTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = AppTypography,
-        shapes = AppShapes,
+        typography = Typography, // ❗ CORRECCIÓN 2: Cambiado de AppTypography a Typography
+        shapes = Shapes,        // ❗ CORRECCIÓN 3: Cambiado de AppShapes a Shapes (asumido)
         content = content
     )
 }

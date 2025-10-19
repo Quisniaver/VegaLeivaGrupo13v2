@@ -1,13 +1,13 @@
-#Sat Oct 18 21:44:43 CLST 2025
-base.0=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.4=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.5=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
-base.6=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-base.7=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.8=C\:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
+#Sat Oct 18 22:31:11 CLST 2025
+base.0=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.4=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.5=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
+base.6=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.7=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.8=C\:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=10/classes.dex

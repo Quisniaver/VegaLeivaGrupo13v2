@@ -15,14 +15,16 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.*
 import com.geektcg.tienda.ui.*
-import com.geektcg.tienda.ui.theme.LeivaVegaTheme
+// ❗ CORRECCIÓN 1: Cambiar la importación de LeivaVegaTheme a TiendaTheme (asumiendo que Theme.kt define TiendaTheme)
+import com.geektcg.tienda.ui.theme.TiendaTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            LeivaVegaTheme(darkTheme = isSystemInDarkTheme()) {
+            // ❗ CORRECCIÓN 1: Usar TiendaTheme
+            TiendaTheme(darkTheme = isSystemInDarkTheme()) {
                 TiendaApp()
             }
         }
@@ -146,10 +148,10 @@ fun TiendaApp() {
                             onClick = {
                                 navController.navigate(screen.route) {
                                     popUpTo(navController.graph.findStartDestination().id) {
-                                        inclusive = true       // ✅ limpia el back stack
+                                        inclusive = true
                                     }
                                     launchSingleTop = true
-                                    restoreState = false     // ✅ evita restaurar pantallas del Drawer
+                                    restoreState = false
                                 }
                             },
                             label = { Text(screen.label) },
@@ -166,7 +168,12 @@ fun TiendaApp() {
                     .fillMaxSize()
                     .padding(innerPadding)
             ) {
-                composable(Screen.Inicio.route) { InicioScreen() }
+                // ❗ CORRECCIÓN 2: InicioScreen debe tener el parámetro de navegación
+                composable(Screen.Inicio.route) {
+                    InicioScreen(onVerProducto = { id ->
+                        navController.navigate(Screen.Detalle.withId(id))
+                    })
+                }
                 composable(Screen.Productos.route) {
                     ProductosScreen(onVerProducto = { id ->
                         navController.navigate(Screen.Detalle.withId(id))

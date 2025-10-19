@@ -16,16 +16,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.geektcg.tienda.R
-import com.geektcg.tienda.ui.CardsSection     // 👈 ajusta si están en otro package
-import com.geektcg.tienda.ui.NovedadesSection
+// Si CardsSection y NovedadesSection están en el mismo paquete, no necesitas estas importaciones explícitas.
+// Si están en archivos separados pero en 'com.geektcg.tienda.ui', las quitamos para limpiar.
+// import com.geektcg.tienda.ui.CardsSection
+// import com.geektcg.tienda.ui.NovedadesSection
 
 @Composable
-fun InicioScreen() {
+fun InicioScreen(
+    // ❗ CORRECCIÓN: Agregar el parámetro de navegación requerido por MainActivity
+    onVerProducto: (id: Int) -> Unit
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5)),
-        contentPadding = PaddingValues(bottom = 24.dp) // 👈 evita solape con bottom bar
+        contentPadding = PaddingValues(bottom = 24.dp)
     ) {
         // Hero
         item {
@@ -71,12 +76,14 @@ fun InicioScreen() {
 
         item {
             SectionTitle("Características")
-            CardsSection()              // 👈 dentro NO debe haber fillMaxSize()
+            // Asumiendo que CardsSection no tiene navegación aquí.
+            CardsSection()
         }
 
         item {
             SectionTitle("Novedades")
-            NovedadesSection()         // 👈 dentro NO debe haber fillMaxSize()
+            // ❗ CORRECCIÓN: Pasar el callback a NovedadesSection para que pueda navegar
+            NovedadesSection(onProductClick = onVerProducto)
         }
 
         item { Spacer(Modifier.height(8.dp)) }

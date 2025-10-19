@@ -4,14 +4,14 @@
             "outputFile": "com.geektcg.tienda.app-mergeDebugResources-75:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\niko_\\OneDrive\\Escritorio\\ComposeTienda_Android_PLUS\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\valei\\AndroidStudioProjects\\VegaLeivaGrupo13v2\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "12,2",
                         "startColumns": "4,4",
-                        "startOffsets": "623,118",
+                        "startOffsets": "635,120",
                         "endLines": "12,9",
                         "endColumns": "44,12",
-                        "endOffsets": "663,566"
+                        "endOffsets": "675,575"
                     },
                     "to": {
                         "startLines": "2,10",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\valei\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\8dfe993ed97c17e21acde57b68ab813d\\transformed\\material-1.12.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "C:\\Users\\valei\\.gradle\\caches\\9.0-milestone-1\\transforms\\8dfe993ed97c17e21acde57b68ab813d\\transformed\\material-1.12.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

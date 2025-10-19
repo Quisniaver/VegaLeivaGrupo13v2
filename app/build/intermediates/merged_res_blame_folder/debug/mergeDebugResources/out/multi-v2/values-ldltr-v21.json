@@ -4,7 +4,7 @@
             "outputFile": "com.geektcg.tienda.app-mergeDebugResources-75:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\niko_\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\valei\\.gradle\\caches\\9.0-milestone-1\\transforms\\a9a4f04e9ea6b09c800fcee9df5d4dca\\transformed\\appcompat-1.6.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

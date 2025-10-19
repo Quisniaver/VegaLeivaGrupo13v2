@@ -1,13 +1,16 @@
 package com.geektcg.tienda.ui.theme
 
 
+
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Shapes
+import androidx.compose.material3.Shapes // Clase importada
 import androidx.compose.ui.unit.dp
 
-// 🎨 Define las formas redondeadas del tema Geek TCG
-val AppShapes = Shapes(
-    small = RoundedCornerShape(4.dp),
-    medium = RoundedCornerShape(8.dp),
-    large = RoundedCornerShape(12.dp)
+// ¡Esta es la VARIABLE que debe ser referenciada en Theme.kt!
+val Shapes = Shapes(
+    extraSmall = RoundedCornerShape(4.dp),
+    small = RoundedCornerShape(8.dp),
+    medium = RoundedCornerShape(12.dp),
+    large = RoundedCornerShape(16.dp),
+    extraLarge = RoundedCornerShape(24.dp)
 )

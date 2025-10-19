@@ -177,8 +177,12 @@ fun TiendaApp() {
                 composable(Screen.Contacto.route) { ContactoScreen() }
                 composable(Screen.Blogs.route) { BlogsScreen() }
                 composable(Screen.Login.route) {
-                    LoginScreen(onRegistro = { navController.navigate(Screen.Registro.route) })
+                    LoginScreen(
+                        navController = navController,  // 👈 aquí pasas el parámetro que faltaba
+                        onRegistro = { navController.navigate(Screen.Registro.route) }
+                    )
                 }
+
                 composable(Screen.Registro.route) { RegistroScreen() }
                 composable(Screen.Usuarios.route) { UsuariosScreen() }
                 composable(Screen.AdmHome.route) { AdmHomeScreen() }

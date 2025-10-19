@@ -1,54 +1,54 @@
 [
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta5.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta5.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta5.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta5.jpg"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta6.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta6.jpg"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_h4.png.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\h4.png"
+        "merged": "com.geektcg.tienda.app-debug-77:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_logo.png.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\logo.png"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h4.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h4.png"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta3.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta3.jpg"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta7.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta7.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h2.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h2.png"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta6.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta6.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_logo.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/logo.png"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_h1.png.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\h1.png"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta1.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta1.jpg"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta1.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta1.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta2.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta2.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta2.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta2.jpg"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_h2.png.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\h2.png"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h1.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h1.png"
     },
     {
         "merged": "com.geektcg.tienda.app-debug-77:/drawable_ic_cards.xml.flat",
         "source": "com.geektcg.tienda.app-main-79:/drawable/ic_cards.xml"
     },
     {
-        "merged": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-debug-77:\\drawable_carta3.jpg.flat",
-        "source": "C:\\Users\\niko_\\.gradle\\daemon\\9.0-milestone-1\\com.geektcg.tienda.app-main-79:\\drawable\\carta3.jpg"
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta7.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta7.jpg"
     }
 ]

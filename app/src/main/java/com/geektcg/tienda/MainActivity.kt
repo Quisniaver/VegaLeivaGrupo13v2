@@ -29,6 +29,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// 📱 Pantallas
 sealed class Screen(val route: String, val label: String) {
     object Inicio : Screen("inicio", "Inicio")
     object Productos : Screen("productos", "Productos")
@@ -53,14 +54,12 @@ fun TiendaApp() {
     val scope = rememberCoroutineScope()
 
     val mainItems = listOf(
-        Screen.Inicio, Screen.Productos, Screen.Carrito, Screen.Nosotros
+        Screen.Inicio,
+        Screen.Productos,
+        Screen.Carrito,
+        Screen.Nosotros
     )
 
-    val drawerItems = listOf(
-        Screen.Contacto, Screen.Blogs, Screen.Login, Screen.Registro, Screen.Usuarios
-    )
-
-    // ✅ Drawer correctamente visible
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -71,30 +70,44 @@ fun TiendaApp() {
                     modifier = Modifier.padding(16.dp)
                 )
                 Divider()
-
                 Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
                     TextButton(onClick = {
-                        navController.navigate(Screen.Contacto.route)
+                        navController.navigate(Screen.Contacto.route) {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                            launchSingleTop = true
+                        }
                         scope.launch { drawerState.close() }
                     }) { Text("Contacto") }
 
                     TextButton(onClick = {
-                        navController.navigate(Screen.Blogs.route)
+                        navController.navigate(Screen.Blogs.route) {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                            launchSingleTop = true
+                        }
                         scope.launch { drawerState.close() }
                     }) { Text("Blogs") }
 
                     TextButton(onClick = {
-                        navController.navigate(Screen.Login.route)
+                        navController.navigate(Screen.Login.route) {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                            launchSingleTop = true
+                        }
                         scope.launch { drawerState.close() }
                     }) { Text("Iniciar Sesión") }
 
                     TextButton(onClick = {
-                        navController.navigate(Screen.Registro.route)
+                        navController.navigate(Screen.Registro.route) {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                            launchSingleTop = true
+                        }
                         scope.launch { drawerState.close() }
                     }) { Text("Registro") }
 
                     TextButton(onClick = {
-                        navController.navigate(Screen.Usuarios.route)
+                        navController.navigate(Screen.Usuarios.route) {
+                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                            launchSingleTop = true
+                        }
                         scope.launch { drawerState.close() }
                     }) { Text("Usuarios") }
                 }
@@ -133,10 +146,10 @@ fun TiendaApp() {
                             onClick = {
                                 navController.navigate(screen.route) {
                                     popUpTo(navController.graph.findStartDestination().id) {
-                                        saveState = true
+                                        inclusive = true       // ✅ limpia el back stack
                                     }
                                     launchSingleTop = true
-                                    restoreState = true
+                                    restoreState = false     // ✅ evita restaurar pantallas del Drawer
                                 }
                             },
                             label = { Text(screen.label) },
@@ -146,7 +159,6 @@ fun TiendaApp() {
                 }
             }
         ) { innerPadding ->
-            // ✅ Ajuste clave: el NavHost recibe padding, permitiendo scroll
             NavHost(
                 navController = navController,
                 startDestination = Screen.Inicio.route,
@@ -165,9 +177,7 @@ fun TiendaApp() {
                 composable(Screen.Contacto.route) { ContactoScreen() }
                 composable(Screen.Blogs.route) { BlogsScreen() }
                 composable(Screen.Login.route) {
-                    LoginScreen(onRegistro = {
-                        navController.navigate(Screen.Registro.route)
-                    })
+                    LoginScreen(onRegistro = { navController.navigate(Screen.Registro.route) })
                 }
                 composable(Screen.Registro.route) { RegistroScreen() }
                 composable(Screen.Usuarios.route) { UsuariosScreen() }

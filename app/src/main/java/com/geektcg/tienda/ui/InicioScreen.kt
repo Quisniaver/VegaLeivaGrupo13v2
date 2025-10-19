@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.*
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.geektcg.tienda.R
-import com.geektcg.tienda.ui.CardsSection   // 👈 asegúrate del paquete correcto
+import com.geektcg.tienda.ui.CardsSection     // 👈 ajusta si están en otro package
 import com.geektcg.tienda.ui.NovedadesSection
 
 @Composable
@@ -25,9 +25,9 @@ fun InicioScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFFF5F5F5)),
-        contentPadding = PaddingValues(bottom = 24.dp) // 👈 mejor que padding externo
+        contentPadding = PaddingValues(bottom = 24.dp) // 👈 evita solape con bottom bar
     ) {
-        // 🔹 Hero Section
+        // Hero
         item {
             Box(
                 modifier = Modifier
@@ -40,8 +40,6 @@ fun InicioScreen() {
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
-
-                // Capa oscura degradada
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -51,8 +49,6 @@ fun InicioScreen() {
                             )
                         )
                 )
-
-                // Texto sobre imagen
                 Column(
                     modifier = Modifier
                         .align(Alignment.BottomStart)
@@ -73,16 +69,14 @@ fun InicioScreen() {
             }
         }
 
-        // 🔹 Características
         item {
             SectionTitle("Características")
-            CardsSection()
+            CardsSection()              // 👈 dentro NO debe haber fillMaxSize()
         }
 
-        // 🔹 Novedades
         item {
             SectionTitle("Novedades")
-            NovedadesSection()
+            NovedadesSection()         // 👈 dentro NO debe haber fillMaxSize()
         }
 
         item { Spacer(Modifier.height(8.dp)) }

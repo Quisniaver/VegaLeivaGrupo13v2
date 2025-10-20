@@ -84,7 +84,7 @@ fun InicioScreen(navController: NavController) {
 
         item {
             SectionTitle("Características")
-            // CardsSection() // Asegúrate de que CardsSection también esté corregido
+            CardsSection() // Asegúrate de que CardsSection también esté corregido
         }
 
         item {

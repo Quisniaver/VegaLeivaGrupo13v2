@@ -17,24 +17,45 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.geektcg.tienda.data.Producto
 import com.geektcg.tienda.data.Repo
-
 @Composable
+
 fun ProductosScreen(onVerProducto: (Int) -> Unit) {
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
     ) {
-        Text(
-            text = "Productos",
-            style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier.padding(bottom = 12.dp)
-        )
+        // Pokémon
+        item {
+            SectionTitle("Pokémon")
+        }
+        items(Repo.productos.filter { it.categoria == "pokemon" }) { producto ->
+            ProductoCard(producto = producto, onVerProducto = onVerProducto)
+        }
 
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            items(Repo.productos) { producto ->
-                ProductoCard(producto = producto, onVerProducto = onVerProducto)
-            }
+        // Yu-Gi-Oh!
+        item {
+            SectionTitle("Yu-Gi-Oh!")
+        }
+        items(Repo.productos.filter { it.categoria == "yugioh" }) { producto ->
+            ProductoCard(producto = producto, onVerProducto = onVerProducto)
+        }
+
+        // Mitos y Leyendas
+        item {
+            SectionTitle("Mitos y Leyendas")
+        }
+        items(Repo.productos.filter { it.categoria == "myl" }) { producto ->
+            ProductoCard(producto = producto, onVerProducto = onVerProducto)
+        }
+
+        // Accesorios
+        item {
+            SectionTitle("Accesorios")
+        }
+        items(Repo.productos.filter { it.categoria == "accesorios" }) { producto ->
+            ProductoCard(producto = producto, onVerProducto = onVerProducto)
         }
     }
 }

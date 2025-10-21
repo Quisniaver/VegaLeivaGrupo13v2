@@ -16,7 +16,7 @@ fun UsuariosScreen() {
     val context = LocalContext.current
     val currentUser = SessionManager.currentUser
 
-    // Si no hay sesión
+
     if (currentUser == null) {
         Box(Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
             Text("Debes iniciar sesión para acceder 🔒")
@@ -24,7 +24,7 @@ fun UsuariosScreen() {
         return
     }
 
-    // Si no es admin
+
     if (!currentUser.isAdmin) {
         Box(Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
             Text("Acceso denegado ❌ Solo el administrador puede ver esta sección.")
@@ -32,7 +32,7 @@ fun UsuariosScreen() {
         return
     }
 
-    // Si es admin
+
     val usuarios = remember { mutableStateListOf(*UsuarioStorage.obtenerUsuarios(context).toTypedArray()) }
 
     Column(Modifier.fillMaxSize().padding(16.dp)) {

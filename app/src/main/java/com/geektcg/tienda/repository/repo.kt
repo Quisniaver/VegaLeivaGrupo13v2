@@ -2,16 +2,16 @@ package com.geektcg.tienda.data
 
 import com.geektcg.tienda.R
 
-// Modelo de datos para un producto
+
 data class Producto(
     val id: Int,
     val nombre: String,
     val precio: Int,
-    val imagen: Int,     // Recurso drawable
-    val categoria: String // Nueva propiedad
+    val imagen: Int,
+    val categoria: String
 )
 
-// Repositorio simple de productos (mock local)
+
 object Repo {
     val productos = listOf(
         // Pokémon

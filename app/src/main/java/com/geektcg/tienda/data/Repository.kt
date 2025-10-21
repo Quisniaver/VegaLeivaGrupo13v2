@@ -16,7 +16,7 @@ class Repository(private val context: Context, private val db: AppDatabase) {
     val cartItems: Flow<List<CartItem>> = db.cartDao().getAll()
     val cartCount: Flow<Int> = context.dataStore.data.map { it[CART_COUNT] ?: 0 }
 
-    // 🔹 Agregar producto (suma al contador)
+
     suspend fun addToCart(item: CartItem) {
         db.cartDao().insert(item)
         context.dataStore.edit { prefs ->
@@ -25,17 +25,17 @@ class Repository(private val context: Context, private val db: AppDatabase) {
         }
     }
 
-    // 🔹 Actualizar cantidad de un producto existente
+
     suspend fun updateCartItem(item: CartItem) {
         db.cartDao().update(item)
     }
 
-    // 🔹 Buscar producto por ID
+
     suspend fun getCartItemById(productId: Int): CartItem? {
         return db.cartDao().getByProductId(productId)
     }
 
-    // 🔹 Borrar un ítem individual
+
     suspend fun removeFromCart(item: CartItem) {
         db.cartDao().delete(item)
         context.dataStore.edit { prefs ->
@@ -44,7 +44,7 @@ class Repository(private val context: Context, private val db: AppDatabase) {
         }
     }
 
-    // 🔹 Vaciar carrito completamente
+
     suspend fun clearCart() {
         db.cartDao().clear()
         context.dataStore.edit { prefs ->

@@ -18,7 +18,7 @@ import com.geektcg.tienda.vm.CarritoViewModel
 @Composable
 fun DetalleScreen(
     id: Int,
-    carritoVM: CarritoViewModel // ✅ usamos el mismo VM compartido
+    carritoVM: CarritoViewModel
 ) {
     val producto = Repo.productos.find { it.id == id } ?: Repo.productos.first()
     var agregado by remember { mutableStateOf(false) }

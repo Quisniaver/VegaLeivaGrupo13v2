@@ -36,11 +36,11 @@ fun CheckoutScreen(
         Text("💳 Checkout", style = MaterialTheme.typography.headlineSmall)
         Spacer(Modifier.height(12.dp))
 
-        // 🛒 Resumen del pedido
+
         Text("Resumen del pedido", style = MaterialTheme.typography.titleMedium)
         Spacer(Modifier.height(8.dp))
         if (items.isEmpty()) {
-            Text("Tu carrito está vacío 😢", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("Tu carrito está vacío ", color = MaterialTheme.colorScheme.onSurfaceVariant)
             return
         }
 
@@ -57,7 +57,7 @@ fun CheckoutScreen(
 
         Spacer(Modifier.height(16.dp))
 
-        // 🔹 Mostrar sesión
+
         if (isLoggedIn) {
             Text(
                 "Sesión iniciada como: ${currentUser?.nombre}",
@@ -70,7 +70,7 @@ fun CheckoutScreen(
 
         Spacer(Modifier.height(16.dp))
 
-        // 🔹 Campos condicionales (sin KeyboardOptions)
+
         if (!isLoggedIn) {
             OutlinedTextField(
                 value = nombre,
@@ -102,7 +102,7 @@ fun CheckoutScreen(
             Spacer(Modifier.height(8.dp))
         }
 
-        // 🔹 Botón de pago ficticio
+
         Button(
             onClick = {
                 when {
@@ -133,7 +133,7 @@ fun CheckoutScreen(
         }
     }
 
-    // 🔹 Diálogo de éxito
+
     if (pagoExitoso) {
         AlertDialog(
             onDismissRequest = {},

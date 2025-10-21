@@ -36,7 +36,7 @@ fun ProductosScreen(
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        // Cuadraditos de categorías
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,7 +57,7 @@ fun ProductosScreen(
             }
         }
 
-        // Área de productos con fondo que cambia
+
         Box(
             modifier = Modifier
                 .fillMaxSize()

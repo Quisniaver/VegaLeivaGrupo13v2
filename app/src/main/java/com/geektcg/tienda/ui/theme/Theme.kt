@@ -12,7 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-// 🎨 Esquema de colores oscuro
+
 private val LightColorScheme = lightColorScheme(
     primary = RoyalBlue,          // 💙 Azul príncipe
     secondary = RoyalGrey,
@@ -30,10 +30,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 
-/**
- * 🌟 Tema principal de la app Geek TCG / LeivaVega
- * Compatible con dynamic color (Android 12+) y modo oscuro
- */
+
 @Composable
 fun LeivaVegaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

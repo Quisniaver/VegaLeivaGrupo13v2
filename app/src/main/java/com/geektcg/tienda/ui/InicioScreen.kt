@@ -24,10 +24,7 @@ import com.geektcg.tienda.ui.*
 @Composable
 fun InicioScreen(navController: NavController) {
 
-    // --- SOLUCIÓN PASO 2: CREAR LOS DATOS Y USAR IMÁGENES QUE EXISTAN ---
-    // Creamos la lista de datos.
-    // NOTA: He cambiado R.drawable.torneo y R.drawable.accesorios por imágenes
-    // que probablemente sí tienes. ¡Asegúrate de que 'novedades1' y 'logo' existan!
+
     val listaDeNovedades = listOf(
         Novedad(1, "¡Vuelve la Megaevolución!", "¡Los Pokémon ex Megaevolución son aún más poderosos y entregan 3 cartas de Premio cuando quedan Fuera de Combate!", R.drawable.pokemon1),
         Novedad(5, "Booster Packs", "Yu-Gi-Oh!: Nuevo lanzamiento: 26-02-2026 /n. Reserva ya .", R.drawable.yugioh1), // Usando 'logo' como placeholder

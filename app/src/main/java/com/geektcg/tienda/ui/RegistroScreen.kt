@@ -30,7 +30,7 @@ fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
 
         Spacer(Modifier.height(12.dp))
 
-        // 🔹 Campo Nombre
+
         OutlinedTextField(
             value = st.nombre,
             onValueChange = { vm.onNombre(it) },
@@ -42,7 +42,7 @@ fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
 
         Spacer(Modifier.height(8.dp))
 
-        // 🔹 Campo Email
+
         OutlinedTextField(
             value = st.email,
             onValueChange = { vm.onEmail(it) },
@@ -54,7 +54,7 @@ fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
 
         Spacer(Modifier.height(8.dp))
 
-        // 🔹 Contraseña (campo 1)
+
         OutlinedTextField(
             value = st.pass1,
             onValueChange = { vm.onPass1(it) },
@@ -70,7 +70,7 @@ fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
 
         Spacer(Modifier.height(8.dp))
 
-        // 🔹 Repetir Contraseña (campo 2)
+
         OutlinedTextField(
             value = st.pass2,
             onValueChange = { vm.onPass2(it) },
@@ -86,7 +86,7 @@ fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
 
         Spacer(Modifier.height(16.dp))
 
-        // 🔹 Botón Crear cuenta
+
         Button(
             onClick = {
                 if (vm.crearCuentaLocal()) {

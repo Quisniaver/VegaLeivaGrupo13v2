@@ -34,7 +34,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
 
-// --- Pide permisos al iniciar la pantalla ---
+
 @Composable
 fun PedirPermisos() {
     val permisosLauncher = rememberLauncherForActivityResult(
@@ -59,15 +59,15 @@ fun NosotrosScreen() {
     val context = LocalContext.current
     val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
 
-    // Estado para ubicación
+
     var latitud by remember { mutableStateOf<Double?>(null) }
     var longitud by remember { mutableStateOf<Double?>(null) }
     var mensaje by remember { mutableStateOf("") }
 
-    // Estado para las imágenes seleccionadas
+
     var imagenes by remember { mutableStateOf<List<Uri>>(emptyList()) }
 
-    // Launcher para seleccionar múltiples imágenes
+
     val galeriaLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetMultipleContents(),
         onResult = { uris ->
@@ -85,7 +85,7 @@ fun NosotrosScreen() {
             .background(MaterialTheme.colorScheme.background),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // --- Título ---
+
         Text(
             text = "Nosotros",
             style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
@@ -94,7 +94,7 @@ fun NosotrosScreen() {
 
         Spacer(Modifier.height(16.dp))
 
-        // --- Descripción ---
+
         Text(
             text = """
 En Geek TCG somos más que una tienda: somos una comunidad apasionada por el universo del **Trading Card Game.
@@ -110,7 +110,7 @@ Ofrecemos productos de las sagas más icónicas como Pokémon, Yu-Gi-Oh! y Mitos
 
         Spacer(Modifier.height(24.dp))
 
-        // --- Botón de galería ---
+
         Text(
             text = "Galería de la tienda",
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
@@ -148,7 +148,7 @@ Ofrecemos productos de las sagas más icónicas como Pokémon, Yu-Gi-Oh! y Mitos
 
         Spacer(Modifier.height(32.dp))
 
-        // --- Ubicación ---
+
         Text(
             text = "Ubicación actual",
             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),

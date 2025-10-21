@@ -25,12 +25,12 @@ data class Novedad(
     val id: Int,
     val titulo: String,
     val descripcion: String,
-    val resId: Int // ID del recurso de la imagen
+    val resId: Int
 )
 
 @Composable
 fun NovedadesSection(
-    novedades: List<Novedad>, // Recibe la lista de novedades a mostrar
+    novedades: List<Novedad>,
     onProductClick: (id: Int) -> Unit
 ) {
     Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {

@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// 📱 Pantallas
+
 sealed class Screen(val route: String, val label: String) {
     object Inicio : Screen("inicio", "Inicio")
     object Productos : Screen("productos", "Productos")
@@ -227,7 +227,7 @@ fun TiendaApp() {
     }
 }
 
-// ✅ Función auxiliar para navegación inferior
+
 private fun NavDestination?.isRoute(route: String): Boolean {
     return this?.route?.startsWith(route.substringBefore("/{")) == true
 }

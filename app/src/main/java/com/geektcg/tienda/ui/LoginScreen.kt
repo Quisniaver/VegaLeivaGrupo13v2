@@ -60,7 +60,7 @@ fun LoginScreen(
         Button(
             onClick = {
                 if (vm.validate()) {
-                    // 📂 Leer usuarios actualizados cada vez que se presiona el botón
+
                     val listaUsuarios = UsuarioStorage.obtenerUsuarios(context)
 
                     val usuario = listaUsuarios.find {
@@ -69,17 +69,17 @@ fun LoginScreen(
                     }
 
                     if (usuario != null) {
-                        // Guardar sesión
+
                         SessionManager.currentUser = usuario
 
-                        // Mensaje
+
                         val msg = if (usuario.isAdmin)
                             "Bienvenido administrador 👑"
                         else
                             "Bienvenido ${usuario.nombre} 🎮"
                         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
 
-                        // Redirigir según tipo de usuario
+
                         if (usuario.isAdmin)
                             navController.navigate("usuarios")
                         else

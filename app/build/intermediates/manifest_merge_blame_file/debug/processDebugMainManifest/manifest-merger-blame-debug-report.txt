@@ -1,0 +1,188 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.geektcg.tienda"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- 🔹 Permisos necesarios -->
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:7:5-81
+13-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+14-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:8:5-76
+14-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:8:22-73
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:9:5-66
+15-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:9:22-63
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:10:5-67
+16-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:10:22-64
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:11:5-79
+17-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:11:22-76
+18
+19    <permission
+19-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+20        android:name="com.geektcg.tienda.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.geektcg.tienda.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:13:5-32:19
+26        android:allowBackup="true"
+26-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:14:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.13.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\403ef41ce074f0090a7c3882d031a256\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+28        android:debuggable="true"
+29        android:extractNativeLibs="false"
+30        android:icon="@mipmap/ic_launcher"
+30-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:15:9-43
+31        android:label="Geek TCG"
+31-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:16:9-33
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:17:9-54
+33        android:supportsRtl="true"
+33-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:18:9-35
+34        android:testOnly="true"
+35        android:theme="@style/Theme.ComposeTienda"
+35-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:19:9-51
+36        android:usesCleartextTraffic="true" >
+36-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:20:9-44
+37
+38        <!-- 🔹 Actividad principal -->
+39        <activity
+39-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:23:9-30:20
+40            android:name="com.geektcg.tienda.MainActivity"
+40-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:24:13-41
+41            android:exported="true" >
+41-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:25:13-36
+42            <intent-filter>
+42-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:26:13-29:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:27:17-69
+43-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:27:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:28:17-77
+45-->C:\Users\niko_\OneDrive\Escritorio\VegaLeivaGrupo13v2-main\app\src\main\AndroidManifest.xml:28:27-74
+46            </intent-filter>
+47        </activity>
+48        <activity
+48-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\cd0f187a174d05720951f4c788aa6b40\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+49            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+49-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\cd0f187a174d05720951f4c788aa6b40\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+50            android:exported="false"
+50-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\cd0f187a174d05720951f4c788aa6b40\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+51            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+51-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\cd0f187a174d05720951f4c788aa6b40\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+52
+53        <meta-data
+53-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\43158d4c2b13d4c4b0a9c542bd7c2ad9\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+54            android:name="com.google.android.gms.version"
+54-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\43158d4c2b13d4c4b0a9c542bd7c2ad9\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+55            android:value="@integer/google_play_services_version" />
+55-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\43158d4c2b13d4c4b0a9c542bd7c2ad9\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+56
+57        <activity
+57-->[androidx.compose.ui:ui-tooling-android:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\7efef4c6812419f17541d4d0bf8b035a\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+58            android:name="androidx.compose.ui.tooling.PreviewActivity"
+58-->[androidx.compose.ui:ui-tooling-android:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\7efef4c6812419f17541d4d0bf8b035a\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+59            android:exported="true" />
+59-->[androidx.compose.ui:ui-tooling-android:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\7efef4c6812419f17541d4d0bf8b035a\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+60
+61        <provider
+61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+62            android:name="androidx.startup.InitializationProvider"
+62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+63            android:authorities="com.geektcg.tienda.androidx-startup"
+63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+64            android:exported="false" >
+64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+65            <meta-data
+65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+66-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+67                android:value="androidx.startup" />
+67-->[androidx.emoji2:emoji2:1.3.0] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\3a769f60ea600cfcc44bb389eb23c72d\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\fd04db23a3579e3c0344c59b167d9d9d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+69-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\fd04db23a3579e3c0344c59b167d9d9d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
+70                android:value="androidx.startup" />
+70-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\fd04db23a3579e3c0344c59b167d9d9d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+73                android:value="androidx.startup" />
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+74        </provider>
+75
+76        <activity
+76-->[androidx.compose.ui:ui-test-manifest:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\b12114ba47a6547723ae9c991f0e3eb1\transformed\ui-test-manifest-1.7.2\AndroidManifest.xml:23:9-25:39
+77            android:name="androidx.activity.ComponentActivity"
+77-->[androidx.compose.ui:ui-test-manifest:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\b12114ba47a6547723ae9c991f0e3eb1\transformed\ui-test-manifest-1.7.2\AndroidManifest.xml:24:13-63
+78            android:exported="true" />
+78-->[androidx.compose.ui:ui-test-manifest:1.7.2] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\b12114ba47a6547723ae9c991f0e3eb1\transformed\ui-test-manifest-1.7.2\AndroidManifest.xml:25:13-36
+79
+80        <service
+80-->[androidx.room:room-runtime:2.6.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\ec8d429bd90a2fff421ee245a5bf5c27\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+81            android:name="androidx.room.MultiInstanceInvalidationService"
+81-->[androidx.room:room-runtime:2.6.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\ec8d429bd90a2fff421ee245a5bf5c27\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+82            android:directBootAware="true"
+82-->[androidx.room:room-runtime:2.6.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\ec8d429bd90a2fff421ee245a5bf5c27\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+83            android:exported="false" />
+83-->[androidx.room:room-runtime:2.6.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\ec8d429bd90a2fff421ee245a5bf5c27\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+84
+85        <receiver
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+86            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+87            android:directBootAware="false"
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+88            android:enabled="true"
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+89            android:exported="true"
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+90            android:permission="android.permission.DUMP" >
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+92                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+93            </intent-filter>
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+95                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+96            </intent-filter>
+97            <intent-filter>
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+98                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+99            </intent-filter>
+100            <intent-filter>
+100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+101                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\niko_\.gradle\caches\9.0-milestone-1\transforms\2cc578e3b5d7c77bdfe43147c9066e6e\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+102            </intent-filter>
+103        </receiver>
+104    </application>
+105
+106</manifest>

@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Tema principal para Jetpack Compose -->
+    <style name="Theme.ComposeTienda" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/royal_blue</item>
+    </style>
+
+    <!-- Colores base opcionales -->
+    <color name="bootstrap_primary">#4169E1</color>
+    <color name="bootstrap_secondary">#6c757d</color>
+    <color name="bootstrap_success">#198754</color>
+    <color name="bootstrap_warning">#ffc107</color>
+    <color name="bootstrap_danger">#dc3545</color>
+    <color name="bootstrap_info">#0dcaf0</color>
+
+    <!-- Color azul príncipe -->
+    <color name="royal_blue">#4169E1</color>
+</resources>

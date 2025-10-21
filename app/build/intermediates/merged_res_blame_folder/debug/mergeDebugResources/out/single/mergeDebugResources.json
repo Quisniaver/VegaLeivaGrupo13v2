@@ -1,0 +1,134 @@
+[
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_yugioh1.jpeg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/yugioh1.jpeg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta6.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta6.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_myl3.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/myl3.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon1.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon1.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h4.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h4.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon3.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon3.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h2.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h2.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_acccesorios1.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/acccesorios1.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_yugioh4.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/yugioh4.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_pokemon2.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon2.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta2.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta2.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_pokemon4.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon4.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_myl2.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/myl2.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_ic_cards.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/ic_cards.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_acccesorios4.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/acccesorios4.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta7.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta7.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta5.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta5.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_yugioh2.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/yugioh2.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_pokemon3.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon3.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta3.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta3.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_exclusivo2.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/exclusivo2.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_logo.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/logo.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_acccesorios3.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/acccesorios3.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_myl1.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/myl1.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon2.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon2.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta1.jpg.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/carta1.jpg"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_myl4.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/myl4.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_pokemon1.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon1.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_h1.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/h1.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_yugioh3.png.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/yugioh3.png"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_acccesorios2.webp.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/acccesorios2.webp"
+    }
+]

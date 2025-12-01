@@ -1,101 +1,121 @@
 package com.geektcg.tienda.ui
-
+import androidx.compose.ui.graphics.Color
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Error
-import androidx.compose.material3.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.geektcg.tienda.vm.RegistroViewModel
 
 @Composable
-fun RegistroScreen(vm: RegistroViewModel = viewModel()) {
-    val st = vm.state
-    val ctx = LocalContext.current
+fun RegistroScreen(
+    navController: NavController,
+    vm: RegistroViewModel = viewModel()
+) {
+    val context = LocalContext.current
+    val state by vm.state.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(horizontal = 24.dp, vertical = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "Registro",
-            style = MaterialTheme.typography.titleLarge
-        )
 
-        Spacer(Modifier.height(12.dp))
+        Text("Crear Cuenta", style = MaterialTheme.typography.headlineMedium)
 
+        Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
-            value = st.nombre,
-            onValueChange = { vm.onNombre(it) },
+            value = state.nombre,
+            onValueChange = vm::onNombreChange,
             label = { Text("Nombre") },
             modifier = Modifier.fillMaxWidth(),
-            isError = st.nombreError != null,
-            supportingText = { st.nombreError?.let { Text(it) } }
+            isError = state.errorNombre != null,
+            supportingText = { state.errorNombre?.let { Text(it) } },
+            shape = RoundedCornerShape(12.dp),
+            textStyle = MaterialTheme.typography.bodyLarge
         )
 
-        Spacer(Modifier.height(8.dp))
-
+        Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = st.email,
-            onValueChange = { vm.onEmail(it) },
+            value = state.email,
+            onValueChange = vm::onEmailChange,
             label = { Text("Email") },
             modifier = Modifier.fillMaxWidth(),
-            isError = st.emailError != null,
-            supportingText = { st.emailError?.let { Text(it) } }
+            isError = state.errorEmail != null,
+            supportingText = { state.errorEmail?.let { Text(it) } }
         )
 
-        Spacer(Modifier.height(8.dp))
-
+        Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = st.pass1,
-            onValueChange = { vm.onPass1(it) },
+            value = state.pass1,
+            onValueChange = vm::onPass1Change,
             label = { Text("Contraseña") },
             modifier = Modifier.fillMaxWidth(),
             visualTransformation = PasswordVisualTransformation(),
-            isError = st.pass1Error != null,
-            trailingIcon = {
-                if (st.pass1Error != null) Icon(Icons.Default.Error, contentDescription = null)
-            },
-            supportingText = { st.pass1Error?.let { Text(it) } }
+            isError = state.errorPass1 != null,
+            supportingText = { state.errorPass1?.let { Text(it) } }
         )
 
-        Spacer(Modifier.height(8.dp))
-
+        Spacer(modifier = Modifier.height(12.dp))
 
         OutlinedTextField(
-            value = st.pass2,
-            onValueChange = { vm.onPass2(it) },
-            label = { Text("Repetir Contraseña") },
+            value = state.pass2,
+            onValueChange = vm::onPass2Change,
+            label = { Text("Repetir contraseña") },
             modifier = Modifier.fillMaxWidth(),
             visualTransformation = PasswordVisualTransformation(),
-            isError = st.pass2Error != null,
-            trailingIcon = {
-                if (st.pass2Error != null) Icon(Icons.Default.Error, contentDescription = null)
-            },
-            supportingText = { st.pass2Error?.let { Text(it) } }
+            isError = state.errorPass2 != null,
+            supportingText = { state.errorPass2?.let { Text(it) } }
         )
 
-        Spacer(Modifier.height(16.dp))
-
+        Spacer(modifier = Modifier.height(24.dp))
 
         Button(
             onClick = {
-                if (vm.crearCuentaLocal()) {
-                    Toast.makeText(ctx, "Cuenta creada correctamente", Toast.LENGTH_SHORT).show()
-                }
+                vm.registrarUsuario(
+                    onSuccess = {
+                        Toast.makeText(
+                            context,
+                            "Cuenta creada con éxito",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        navController.popBackStack()
+                    },
+                    onError = {
+                        Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+                    }
+                )
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF0D47A1),   // azul antiguo
+                contentColor = Color.White
+            ),
+            shape = RoundedCornerShape(12.dp)
         ) {
-            Text("Crear cuenta")
+            Text("Registrarse")
         }
-    }
-}
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        TextButton(
+            onClick = { navController.popBackStack() }
+        ) {
+            Text("¿Ya tienes cuenta? Iniciar sesión")
+        }}}

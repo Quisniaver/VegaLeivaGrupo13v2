@@ -1,129 +1,131 @@
 package com.geektcg.tienda.vm
 
-import android.app.Application
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.geektcg.tienda.data.UserPreferences
+import com.geektcg.tienda.api.ApiClient
+import com.geektcg.tienda.api.UsuarioApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-// 🔹 Estado del formulario
-data class RegistroState(
-    val nombre: String = "",
-    val email: String = "",
-    val pass1: String = "",
-    val pass2: String = "",
-    val nombreError: String? = null,
-    val emailError: String? = null,
-    val pass1Error: String? = null,
-    val pass2Error: String? = null
-)
+class RegistroViewModel : ViewModel() {
 
-// 🔹 ViewModel principal
-class RegistroViewModel(app: Application) : AndroidViewModel(app) {
+    private val api = ApiClient.retrofit.create(UsuarioApi::class.java)
 
-    var state by mutableStateOf(RegistroState())
-        private set
+    private val _state = MutableStateFlow(RegistroState())
+    val state: StateFlow<RegistroState> = _state
 
-    private val prefs = UserPreferences(app) // DataStore
+    // ---------- VALIDACIONES -----------
 
-    // 🔹 Actualizadores de campos
-    fun onNombre(v: String) {
-        state = state.copy(nombre = v, nombreError = null)
+    private fun validarNombre(nombre: String): String? {
+        return when {
+            nombre.isBlank() -> "El nombre no puede estar vacío"
+            nombre.length < 3 -> "Debe tener al menos 3 caracteres"
+            else -> null
+        }
     }
 
-    fun onEmail(v: String) {
-        state = state.copy(email = v, emailError = null)
+    private fun validarEmail(email: String): String? {
+        return when {
+            email.isBlank() -> "El email no puede estar vacío"
+            !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() ->
+                "Formato de email inválido"
+            else -> null
+        }
     }
 
-    fun onPass1(v: String) {
-        state = state.copy(pass1 = v, pass1Error = null)
+    private fun validarPass(pass: String): String? {
+        return when {
+            pass.length < 6 -> "La contraseña debe tener al menos 6 caracteres"
+            else -> null
+        }
     }
 
-    fun onPass2(v: String) {
-        state = state.copy(pass2 = v, pass2Error = null)
+    private fun validarIguales(pass1: String, pass2: String): String? {
+        return if (pass1 != pass2) "Las contraseñas no coinciden" else null
     }
 
-    private fun isEmailValid(e: String) =
-        android.util.Patterns.EMAIL_ADDRESS.matcher(e).matches()
+    private fun validarFormulario() {
+        val s = _state.value
 
-    // 🔹 Validación completa
-    fun validate(): Boolean {
-        var valid = true
-        var nErr: String? = null
-        var eErr: String? = null
-        var p1Err: String? = null
-        var p2Err: String? = null
+        val valido =
+            s.errorNombre == null &&
+                    s.errorEmail == null &&
+                    s.errorPass1 == null &&
+                    s.errorPass2 == null &&
+                    s.nombre.isNotBlank() &&
+                    s.email.isNotBlank() &&
+                    s.pass1.isNotBlank() &&
+                    s.pass2.isNotBlank()
 
-        // 🟣 Validar nombre
-        when {
-            state.nombre.isBlank() -> {
-                nErr = "El nombre no puede estar vacío"
-                valid = false
-            }
-            state.nombre.length > 10 -> {
-                nErr = "Máximo 10 caracteres"
-                valid = false
-            }
-            !state.nombre.matches(Regex("^[A-Za-z0-9]+$")) -> {
-                nErr = "Solo letras y números, sin símbolos"
-                valid = false
-            }
-        }
+        _state.value = _state.value.copy(valido = valido)
+    }
 
-        // 🟣 Validar email
-        if (!isEmailValid(state.email)) {
-            eErr = "Email inválido"
-            valid = false
-        }
+    // ---------- ON CHANGE -----------
 
-        // 🟣 Validar contraseña principal
-        when {
-            state.pass1.isBlank() -> {
-                p1Err = "La contraseña no puede estar vacía"
-                valid = false
-            }
-            state.pass1.length < 6 -> {
-                p1Err = "Debe tener al menos 6 caracteres"
-                valid = false
-            }
-            !state.pass1.matches(Regex(".*\\d.*")) -> {
-                p1Err = "Debe contener al menos un número"
-                valid = false
-            }
-        }
-
-        // 🟣 Validar coincidencia
-        if (state.pass1 != state.pass2 && state.pass2.isNotEmpty()) {
-            p2Err = "Las contraseñas no coinciden"
-            valid = false
-        }
-
-        // 🟣 Actualizar estado
-        state = state.copy(
-            nombreError = nErr,
-            emailError = eErr,
-            pass1Error = p1Err,
-            pass2Error = p2Err
+    fun onNombreChange(value: String) {
+        _state.value = _state.value.copy(
+            nombre = value,
+            errorNombre = validarNombre(value)
         )
-
-        return valid
+        validarFormulario()
     }
 
-    // 🔹 Guardar cuenta en almacenamiento local
-    fun crearCuentaLocal(): Boolean {
-        val valid = validate()
-        if (!valid) return false
+    fun onEmailChange(value: String) {
+        _state.value = _state.value.copy(
+            email = value,
+            errorEmail = validarEmail(value)
+        )
+        validarFormulario()
+    }
+
+    fun onPass1Change(value: String) {
+        _state.value = _state.value.copy(
+            pass1 = value,
+            errorPass1 = validarPass(value),
+            errorPass2 = validarIguales(value, _state.value.pass2)
+        )
+        validarFormulario()
+    }
+
+    fun onPass2Change(value: String) {
+        _state.value = _state.value.copy(
+            pass2 = value,
+            errorPass2 = validarIguales(_state.value.pass1, value)
+        )
+        validarFormulario()
+    }
+
+    // ---------- REGISTRAR -----------
+
+    fun registrarUsuario(
+        onSuccess: () -> Unit,
+        onError: (String) -> Unit
+    ) {
+        val s = _state.value
+        if (!s.valido) {
+            onError("Formato Incorrecto")
+            return
+        }
 
         viewModelScope.launch {
-            prefs.saveUser(
-                name = state.nombre,
-                email = state.email,
-                pass = state.pass1
-            )
+
+            _state.value = _state.value.copy(loading = true)
+
+            try {
+                api.crearUsuario(
+                    com.geektcg.tienda.vm.Usuario(
+                        nombre = s.nombre,
+                        email = s.email,
+                        password = s.pass1
+                    )
+                )
+                onSuccess()
+            } catch (e: Exception) {
+                onError("Error registrando usuario: ${e.message}")
+            }
+
+            _state.value = _state.value.copy(loading = false)
         }
-        return true
     }
 }

@@ -40,6 +40,14 @@
         "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon2.jpg"
     },
     {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon_camera.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon_camera.xml"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon_calendar.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon_calendar.xml"
+    },
+    {
         "merged": "com.geektcg.tienda.app-debug-77:/drawable_carta2.jpg.flat",
         "source": "com.geektcg.tienda.app-main-79:/drawable/carta2.jpg"
     },
@@ -120,6 +128,10 @@
         "source": "com.geektcg.tienda.app-main-79:/drawable/pokemon1.png"
     },
     {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon_controller.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon_controller.xml"
+    },
+    {
         "merged": "com.geektcg.tienda.app-debug-77:/drawable_h1.png.flat",
         "source": "com.geektcg.tienda.app-main-79:/drawable/h1.png"
     },
@@ -130,5 +142,9 @@
     {
         "merged": "com.geektcg.tienda.app-debug-77:/drawable_acccesorios2.webp.flat",
         "source": "com.geektcg.tienda.app-main-79:/drawable/acccesorios2.webp"
+    },
+    {
+        "merged": "com.geektcg.tienda.app-debug-77:/drawable_icon_heart.xml.flat",
+        "source": "com.geektcg.tienda.app-main-79:/drawable/icon_heart.xml"
     }
 ]

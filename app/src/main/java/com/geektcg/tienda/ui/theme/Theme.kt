@@ -1,51 +1,60 @@
 package com.geektcg.tienda.ui.theme
-import android.app.Activity
-import androidx.compose.ui.graphics.Color
 
+import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
+// 🌞 MODO CLARO
+private val LightColors = lightColorScheme(
+    primary = PurpleMedium,
+    secondary = PurpleLight,
+    tertiary = PurpleDark,
 
-private val LightColorScheme = lightColorScheme(
-    primary = RoyalBlue,          // 💙 Azul príncipe
-    secondary = RoyalGrey,
-    tertiary = SkyBlue40,
-    background = RoyalBackground,
-    surface = Color.White
+    background = BackgroundLight,
+    surface = SurfaceLight,
+
+    onPrimary = TextLight,
+    onSecondary = TextDark,
+    onTertiary = TextLight,
+
+    onBackground = TextDark,
+    onSurface = TextDark
 )
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Color(0xFF3756B0),  // Azul más oscuro
-    secondary = Color(0xFFB0B6C8),
-    tertiary = Color(0xFF90CAF9),
-    background = Color(0xFF0D1117),
-    surface = Color(0xFF1C1F26)
+// 🌙 MODO OSCURO
+private val DarkColors = darkColorScheme(
+    primary = PurpleDark,
+    secondary = PurpleMedium,
+    tertiary = PurpleLight,
+
+    background = Color(0xFF181020),
+    surface = Color(0xFF221732),
+
+    onPrimary = TextLight,
+    onSecondary = TextLight,
+    onTertiary = Color.Black,
+
+    onBackground = TextLight,
+    onSurface = TextLight
 )
-
-
 
 @Composable
 fun LeivaVegaTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
 
+    val colorScheme = if (darkTheme) DarkColors else LightColors
+
+    // ⭐ Control total de status Bar (solo morado)
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

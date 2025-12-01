@@ -62,6 +62,10 @@ android {
 
 dependencies {
 
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+
+
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation("io.coil-kt:coil-compose:2.6.0")
 
@@ -73,6 +77,9 @@ dependencies {
     implementation("androidx.compose.material3:material3")          // versión se toma del BOM
     implementation("androidx.activity:activity-compose:1.9.2")
     implementation("androidx.navigation:navigation-compose:2.8.3")
+
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     // --- ViewModel & LiveData ---
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")

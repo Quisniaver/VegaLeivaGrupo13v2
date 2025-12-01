@@ -12,69 +12,67 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.geektcg.tienda.data.Producto
-import com.geektcg.tienda.data.Repo
+import com.geektcg.tienda.api.ApiClient
+import com.geektcg.tienda.api.ProductoApi
+import com.geektcg.tienda.api.ProductoRemote
+import com.geektcg.tienda.R
 import com.geektcg.tienda.vm.CarritoViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun ProductosScreen(
-    onVerProducto: (Int) -> Unit,
     carritoVM: CarritoViewModel
 ) {
-    var categoriaSeleccionada by remember { mutableStateOf("pokemon") }
+    val scope = rememberCoroutineScope()
 
-    val colorFondo = when (categoriaSeleccionada) {
-        "pokemon" -> Color(0xFFFFEB3B) // Amarillo
-        "yugioh" -> Color(0xFF9C27B0)  // Morado
-        "myl" -> Color(0xFF4CAF50)     // Verde
-        else -> Color(0xFFFFD700)      // Dorado
+    // API para traer productos
+    val api = ApiClient.retrofit.create(ProductoApi::class.java)
+
+    // Lista cargada desde backend
+    var productos by remember { mutableStateOf<List<ProductoRemote>>(emptyList()) }
+
+    // Categoría seleccionada
+    var categoria by remember { mutableStateOf("Todos") }
+
+    // Cargar productos cuando cambia la categoría
+    LaunchedEffect(categoria) {
+        productos = api.listarProductos(
+            if (categoria == "Todos") null else categoria.lowercase()
+        )
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-
+        // ⭐ FILTROS DE CATEGORÍAS (chips bonitos)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
+                .background(Color(0xFFF0F0F0))
+                .padding(vertical = 8.dp),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            CategoriaButton("pokemon", "Pokémon", Color(0xFFFFEB3B), categoriaSeleccionada) {
-                categoriaSeleccionada = "pokemon"
-            }
-            CategoriaButton("yugioh", "Yu-Gi-Oh!", Color(0xFF9C27B0), categoriaSeleccionada) {
-                categoriaSeleccionada = "yugioh"
-            }
-            CategoriaButton("myl", "MyL", Color(0xFF4CAF50), categoriaSeleccionada) {
-                categoriaSeleccionada = "myl"
-            }
-            CategoriaButton("otros", "Otros", Color(0xFFFFD700), categoriaSeleccionada) {
-                categoriaSeleccionada = "otros"
-            }
+            CategoriaChip("Todos", categoria) { categoria = "Todos" }
+            CategoriaChip("pokemon", categoria) { categoria = "pokemon" }
+            CategoriaChip("yugioh", categoria) { categoria = "yugioh" }
+            CategoriaChip("myl", categoria) { categoria = "myl" }
+            CategoriaChip("accesorios", categoria) { categoria = "accesorios" }
         }
 
-
-        Box(
+        // ⭐ Lista de productos
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorFondo.copy(alpha = 0.15f))
-                .padding(horizontal = 12.dp, vertical = 8.dp)
+                .padding(10.dp)
         ) {
-            val productosFiltrados = Repo.productos.filter {
-                if (categoriaSeleccionada == "otros") it.categoria !in listOf("pokemon", "yugioh", "myl")
-                else it.categoria == categoriaSeleccionada
-            }
-
-            LazyColumn(verticalArrangement = Arrangement.spacedBy(20.dp)) {
-                items(productosFiltrados) { producto ->
-                    ProductoCard(
-                        producto = producto,
-                        onVerProducto = onVerProducto,
-                        carritoVM = carritoVM
+            items(productos) { p ->
+                ProductoItem(p) {
+                    carritoVM.add(
+                        productId = p.id,
+                        name = p.nombre,
+                        price = p.precio,
+                        qty = 1
                     )
                 }
             }
@@ -83,85 +81,106 @@ fun ProductosScreen(
 }
 
 @Composable
-fun CategoriaButton(
-    id: String,
-    texto: String,
-    color: Color,
-    categoriaSeleccionada: String,
+fun CategoriaChip(
+    text: String,
+    selected: String,
     onClick: () -> Unit
 ) {
-    val isSelected = id == categoriaSeleccionada
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = if (isSelected) color else color.copy(alpha = 0.4f)
-        ),
-        shape = RoundedCornerShape(10.dp),
+    Surface(
+        color = if (text == selected) Color(0xFF0D47A1) else Color.White,
+        shadowElevation = 2.dp,
+        shape = RoundedCornerShape(20.dp),
         modifier = Modifier
-            .size(80.dp)
-            .clickable { onClick() },
-        elevation = CardDefaults.cardElevation(defaultElevation = if (isSelected) 8.dp else 2.dp)
+            .padding(horizontal = 6.dp)
+            .height(38.dp)
+            .clickable { onClick() }
     ) {
         Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxHeight(),
+            contentAlignment = Alignment.Center
         ) {
             Text(
-                text = texto,
-                color = Color.Black,
-                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                text = text.replaceFirstChar { it.uppercase() },
+                color = if (text == selected) Color.White else Color.Black,
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }
 }
 
 @Composable
-fun ProductoCard(
-    producto: Producto,
-    onVerProducto: (Int) -> Unit,
-    carritoVM: CarritoViewModel
-) {
+fun ProductoItem(producto: ProductoRemote, onAgregar: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onVerProducto(producto.id) }
-            .padding(horizontal = 4.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            .padding(vertical = 6.dp),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(8.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .padding(12.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = producto.imagen),
-                contentDescription = producto.nombre,
+
+        Box {
+
+            // ⭐ CHIP DE CATEGORÍA DENTRO DE LA CARD
+            Box(
                 modifier = Modifier
-                    .size(90.dp)
-                    .padding(end = 12.dp),
-                contentScale = ContentScale.Crop
-            )
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 12.dp, bottom = 12.dp)
+                    .background(
+                        color = Color(0xFF1976D2),
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    .padding(horizontal = 10.dp, vertical = 4.dp)
+            ) {
+                Text(
+                    text = producto.categoria.replaceFirstChar { it.uppercase() },
+                    color = Color.White,
+                    style = MaterialTheme.typography.labelSmall
+                )
+            }
 
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = producto.nombre, style = MaterialTheme.typography.titleMedium)
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(text = "$${producto.precio}", style = MaterialTheme.typography.bodyMedium)
-                Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier
+                    .padding(12.dp)
+            ) {
+                Image(
+                    painter = painterResource(id = resolveImage(producto)),
+                    contentDescription = producto.nombre,
+                    modifier = Modifier.size(160.dp)
+                )
 
-                Button(
-                    onClick = {
-                        carritoVM.add(
-                            productId = producto.id,
-                            name = producto.nombre,
-                            price = producto.precio,
-                            qty = 1
-                        )
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text("Agregar al carrito")
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(producto.nombre, style = MaterialTheme.typography.titleMedium)
+                    Text("$${producto.precio}", style = MaterialTheme.typography.bodyLarge)
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    Button(
+                        onClick = onAgregar,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF0D47A1)
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text("Agregar al carrito", color = Color.White)
+                    }
                 }
             }
         }
+    }
+}
+
+// ⭐ Traductor de imágenes
+fun resolveImage(p: ProductoRemote): Int {
+    return when (p.imagen) {
+        "pokemon1" -> R.drawable.pokemon1
+        "pokemon2" -> R.drawable.pokemon2
+        "yugioh1"  -> R.drawable.yugioh1
+        "myl1"     -> R.drawable.myl1
+        else -> R.drawable.pokemon1
     }
 }

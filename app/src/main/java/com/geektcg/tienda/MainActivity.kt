@@ -1,5 +1,6 @@
 package com.geektcg.tienda
 
+import androidx.compose.ui.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,6 +20,12 @@ import com.geektcg.tienda.ui.*
 import com.geektcg.tienda.ui.theme.LeivaVegaTheme
 import com.geektcg.tienda.vm.CarritoViewModel
 import kotlinx.coroutines.launch
+
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.ShoppingBag
+import androidx.compose.material.icons.filled.ShoppingCart
+import com.geektcg.tienda.vm.SessionManager
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,13 +115,18 @@ fun TiendaApp() {
                         scope.launch { drawerState.close() }
                     }) { Text("Registro") }
 
-                    TextButton(onClick = {
-                        navController.navigate(Screen.Usuarios.route) {
-                            popUpTo(navController.graph.startDestinationId) { inclusive = false }
-                            launchSingleTop = true
+                    if (SessionManager.currentUser?.isAdmin == true) {
+                        TextButton(onClick = {
+                            navController.navigate(Screen.Usuarios.route) {
+                                popUpTo(navController.graph.startDestinationId) { inclusive = false }
+                                launchSingleTop = true
+                            }
+                            scope.launch { drawerState.close() }
+                        }) {
+                            Text("Usuarios")
                         }
-                        scope.launch { drawerState.close() }
-                    }) { Text("Usuarios") }
+                    }
+
                 }
             }
         }
@@ -124,9 +136,10 @@ fun TiendaApp() {
                 TopAppBar(
                     title = { Text("Geek TCG") },
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimary
-                    ),
+                        containerColor = Color(0xFF0D47A1), // azul fuerte
+                        titleContentColor = Color.White
+                    )
+                    ,
                     navigationIcon = {
                         IconButton(onClick = { scope.launch { drawerState.open() } }) {
                             Icon(
@@ -140,30 +153,52 @@ fun TiendaApp() {
             },
             bottomBar = {
                 NavigationBar(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    contentColor = MaterialTheme.colorScheme.primary
+                    containerColor = Color.White,
+                    tonalElevation = 8.dp
                 ) {
                     val navBackStackEntry by navController.currentBackStackEntryAsState()
-                    val currentDestination = navBackStackEntry?.destination
+                    val currentRoute = navBackStackEntry?.destination?.route
 
-                    mainItems.forEach { screen ->
+                    val items = listOf(
+                        Screen.Inicio to Icons.Default.Home,
+                        Screen.Productos to Icons.Default.ShoppingCart,
+                        Screen.Carrito to Icons.Default.ShoppingBag,
+                        Screen.Nosotros to Icons.Default.Info
+                    )
+
+                    items.forEach { (screen, icon) ->
                         NavigationBarItem(
-                            selected = currentDestination.isRoute(screen.route),
+                            selected = currentRoute == screen.route,
                             onClick = {
                                 navController.navigate(screen.route) {
-                                    popUpTo(navController.graph.findStartDestination().id) {
-                                        inclusive = true
-                                    }
+                                    popUpTo(navController.graph.startDestinationId) { inclusive = false }
                                     launchSingleTop = true
-                                    restoreState = false
                                 }
                             },
-                            label = { Text(screen.label) },
-                            icon = {}
+                            icon = {
+                                Icon(
+                                    icon,
+                                    contentDescription = screen.label,
+                                    tint = if (currentRoute == screen.route)
+                                        Color(0xFF0D47A1)  // azul fuerte como el navbar
+                                    else
+                                        Color.Gray
+                                )
+                            },
+                            label = {
+                                Text(
+                                    screen.label,
+                                    color = if (currentRoute == screen.route)
+                                        Color(0xFF0D47A1)
+                                    else
+                                        Color.Gray
+                                )
+                            }
                         )
                     }
                 }
             }
+
         ) { innerPadding ->
             NavHost(
                 navController = navController,
@@ -177,7 +212,6 @@ fun TiendaApp() {
                 }
                 composable(Screen.Productos.route) {
                     ProductosScreen(
-                        onVerProducto = { id -> navController.navigate(Screen.Detalle.withId(id)) },
                         carritoVM = carritoVM
                     )
                 }
@@ -187,6 +221,10 @@ fun TiendaApp() {
                         onPay = { navController.navigate("checkout") }
                     )
                 }
+                composable("torneos") {
+                    TorneosScreen(navController)
+                }
+
                 composable(Screen.Nosotros.route) { NosotrosScreen() }
                 composable(Screen.Contacto.route) { ContactoScreen() }
                 composable(Screen.Blogs.route) { BlogsScreen() }
@@ -196,7 +234,10 @@ fun TiendaApp() {
                         onRegistro = { navController.navigate(Screen.Registro.route) }
                     )
                 }
-                composable(Screen.Registro.route) { RegistroScreen() }
+                composable(Screen.Registro.route) {
+                    RegistroScreen(navController = navController)
+                }
+
                 composable(Screen.Usuarios.route) { UsuariosScreen() }
                 composable(Screen.AdmHome.route) { AdmHomeScreen() }
 
@@ -222,6 +263,7 @@ fun TiendaApp() {
                         vm = carritoVM
                     )
                 }
+
             }
         }
     }

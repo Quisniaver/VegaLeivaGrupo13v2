@@ -1,51 +1,40 @@
 package com.geektcg.tienda.vm
 
-import android.content.Context
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.File
+import android.util.Log
+import com.geektcg.tienda.api.ApiClient
+import com.geektcg.tienda.api.UsuarioApi
 
 object UsuarioStorage {
-    private const val FILE_NAME = "usuarios.json"
 
-    private val gson = Gson()
+    private val api: UsuarioApi by lazy {
+        ApiClient.retrofit.create(UsuarioApi::class.java)
+    }
 
-    fun obtenerUsuarios(context: Context): List<Usuario> {
-        val file = File(context.filesDir, FILE_NAME)
-        if (!file.exists()) {
-            // 🔹 Crear admin por defecto
-            val admin = Usuario(
-                nombre = "Administrador",
-                email = "admin@geektcg.cl",
-                password = "admin123",
-                isAdmin = true
-            )
-            val adminList = listOf(admin)
-            file.writeText(gson.toJson(adminList))
-            return adminList
+    suspend fun obtenerUsuariosRemotos(): List<Usuario> {
+        return try {
+            api.obtenerUsuarios()
+        } catch (e: Exception) {
+            Log.e("UsuarioStorage", "Error obteniendo usuarios del backend", e)
+            emptyList()
         }
-
-        val type = object : TypeToken<List<Usuario>>() {}.type
-        return gson.fromJson(file.readText(), type) ?: emptyList()
     }
 
-    fun guardarUsuario(context: Context, usuario: Usuario) {
-        val lista = obtenerUsuarios(context).toMutableList()
-
-        // Evita duplicados por email
-        if (lista.any { it.email == usuario.email }) return
-
-        lista.add(usuario)
-        val file = File(context.filesDir, FILE_NAME)
-        file.writeText(gson.toJson(lista))
+    suspend fun crearUsuario(usuario: Usuario): Usuario? {
+        return try {
+            api.crearUsuario(usuario)
+        } catch (e: Exception) {
+            Log.e("UsuarioStorage", "Error creando usuario en backend", e)
+            null
+        }
     }
 
-    fun eliminarUsuario(context: Context, email: String) {
-        val lista = obtenerUsuarios(context).toMutableList()
-        val nuevaLista = lista.filterNot { it.email == email }
-        val file = File(context.filesDir, FILE_NAME)
-        file.writeText(gson.toJson(nuevaLista))
+    suspend fun eliminarUsuario(email: String): Boolean {
+        return try {
+            api.eliminarUsuario(email)
+            true
+        } catch (e: Exception) {
+            Log.e("UsuarioStorage", "Error eliminando usuario en backend", e)
+            false
+        }
     }
 }
-
-

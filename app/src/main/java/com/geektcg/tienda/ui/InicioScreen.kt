@@ -1,108 +1,69 @@
 package com.geektcg.tienda.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.geektcg.tienda.R
 import com.geektcg.tienda.Screen
 
-import com.geektcg.tienda.ui.*
-
 @Composable
 fun InicioScreen(navController: NavController) {
 
-
     val listaDeNovedades = listOf(
-        Novedad(1, "¡Vuelve la Megaevolución!", "¡Los Pokémon ex Megaevolución son aún más poderosos y entregan 3 cartas de Premio cuando quedan Fuera de Combate!", R.drawable.pokemon1),
-        Novedad(5, "Booster Packs", "Yu-Gi-Oh!: Nuevo lanzamiento: 26-02-2026 /n. Reserva ya .", R.drawable.yugioh1), // Usando 'logo' como placeholder
-        Novedad(9, "Mitos y leyenda", "MYL: Preventa Primera Era", R.drawable.myl1) // Usando 'novedades1' como placeholder
+        Novedad(
+            1,
+            "¡Vuelve la Megaevolución!",
+            "¡Los Pokémon ex Megaevolución son aún más poderosos y entregan 3 cartas de Premio!",
+            R.drawable.pokemon1
+        ),
+        Novedad(
+            5,
+            "Booster Packs",
+            "Yu-Gi-Oh!: Nuevo lanzamiento: 26-02-2026. Reserva ya.",
+            R.drawable.yugioh1
+        ),
+        Novedad(
+            9,
+            "Mitos y Leyenda",
+            "MYL: Preventa Primera Era",
+            R.drawable.myl1
+        )
     )
 
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F5F5)),
-        contentPadding = PaddingValues(bottom = 24.dp)
+            .background(Color(0xFFF4F4F4)),
+        contentPadding = PaddingValues(bottom = 16.dp)
     ) {
-        // Hero
+
+        // 🔹 Íconos principales
         item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(260.dp)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.logo),
-                    contentDescription = "GEEK TCG - Trading Card Game",
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(
-                            Brush.verticalGradient(
-                                listOf(Color.Transparent, Color.Black.copy(alpha = 0.6f))
-                            )
-                        )
-                )
-                Column(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(16.dp)
-                ) {
-                    Text(
-                        text = "GEEK TCG",
-                        color = Color.White,
-                        fontSize = 32.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        text = "TRADING CARD GAME",
-                        color = Color.White.copy(alpha = 0.9f),
-                        fontSize = 18.sp
-                    )
-                }
-            }
+            SectionTitle("Explorar")
+            CardsSection(navController)
+
         }
 
-        item {
-            SectionTitle("")
-            CardsSection() // Asegúrate de que CardsSection también esté corregido
-        }
-
+        // 🔹 Novedades
         item {
             SectionTitle("Novedades")
-
-            // --- SOLUCIÓN PASO 3: LLAMAR A LA FUNCIÓN CORRECTAMENTE ---
-            // Ahora esta llamada funciona porque:
-            // 1. El 'import' le dice al compilador dónde está NovedadesSection.
-            // 2. Le pasamos la lista de novedades que creamos arriba.
-            // 3. Le pasamos la acción de navegación.
             NovedadesSection(
                 novedades = listaDeNovedades,
-                onProductClick = { novedadId ->
-                    navController.navigate(Screen.Detalle.withId(novedadId))
+                onProductClick = { id ->
+                    navController.navigate(Screen.Detalle.withId(id))
                 }
-
-
             )
         }
 
-        item { Spacer(Modifier.height(8.dp)) }
+        item { Spacer(Modifier.height(12.dp)) }
     }
 }
 
@@ -110,7 +71,7 @@ fun InicioScreen(navController: NavController) {
 fun SectionTitle(title: String) {
     Text(
         text = title,
-        fontSize = 22.sp,
+        style = MaterialTheme.typography.titleMedium,
         fontWeight = FontWeight.SemiBold,
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
     )
